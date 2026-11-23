@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprender Palavras e Números - Protótipo Acessível</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#005fcc">
+  <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
+</head>
+<body>
+
+  <header>
+    <div>
+      <h1>APRENDER E COMUNICAR</h1>
+      <p>Escolha uma atividade para começar:</p>
+    </div>
+    <div class="controles-topo">
+      <button id="btn-modo-explorar" class="ativo" onclick="mudarModo('explorar')">1. EXPLORAR</button>
+      <button id="btn-modo-quiz" onclick="mudarModo('quiz')">2. JOGAR</button>
+      <button id="btn-modo-silabas" onclick="mudarModo('silabas')">3. SÍLABAS</button>
+      <button id="btn-modo-numeros" onclick="mudarModo('numeros')">4. NÚMEROS</button>
+      <button onclick="alternarContraste()" aria-label="Alternar alto contraste">CONTRASTE</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- MODO 1: EXPLORAR VOCABULÁRIO -->
+    <section id="tela-explorar" class="grade-palavras" aria-label="Lista de palavras para ouvir"></section>
+
+    <!-- MODO 2: ASSOCIAR IMAGEM E PALAVRA -->
+    <section id="tela-quiz" class="atividade-container oculto" aria-label="Atividade de associar imagem e palavra">
+      <p class="instrucao">TOQUE NA FIGURA PARA OUVIR E ESCOLHA A PALAVRA:</p>
+      
+      <button id="quiz-figura" class="figura-destaque-btn" onclick="repetirPalavraAtual()" aria-label="Ouvir palavra da figura">
+        🍎
+      </button>
+
+      <div id="opcoes-quiz" class="opcoes-quiz"></div>
+
+      <div id="feedback-quiz" class="mensagem-feedback" aria-live="polite"></div>
+    </section>
+
+    <!-- MODO 3: FORMAR PALAVRAS COM SÍLABAS -->
+    <section id="tela-silabas" class="atividade-container oculto" aria-label="Atividade de formar palavras com sílabas">
+      <p class="instrucao">TOQUE NAS SÍLABAS NA ORDEM CERTA PARA FORMAR A PALAVRA:</p>
+
+      <button id="silabas-figura" class="figura-destaque-btn" onclick="repetirPalavraAtual()" aria-label="Ouvir palavra da figura">
+        ⚽
+      </button>
+
+      <div id="slots-silabas" class="slots-silabas" aria-live="polite"></div>
+      <div id="botoes-silabas" class="botoes-silabas"></div>
+
+      <button class="btn-limpar" onclick="reiniciarPalavraSilabas()">↺ LIMPAR</button>
+
+      <div id="feedback-silabas" class="mensagem-feedback" aria-live="polite"></div>
+    </section>
+
+    <!-- MODO 4: NÚMEROS DE 1 A 10 -->
+    <section id="tela-numeros" class="atividade-container oculto" aria-label="Atividade com números de 1 a 10">
+      <div class="subcontroles-numeros">
+        <button id="btn-sub-explorar-num" class="ativo" onclick="alternarSubmodoNumeros('explorar')">OUVIR NÚMEROS</button>
+        <button id="btn-sub-contar-num" onclick="alternarSubmodoNumeros('contar')">CONTAR ESTRELAS</button>
+      </div>
+
+      <p id="instrucao-numeros" class="instrucao">TOQUE EM UM NÚMERO PARA OUVIR E VER A QUANTIDADE:</p>
+
+      <!-- Visor de quantidade visual (estrelas) e nome por extenso -->
+      <div id="visor-quantidade" class="visor-quantidade" aria-live="polite">
+        <div id="estrelas-container" class="estrelas-container">⭐</div>
+        <div id="numero-extenso" class="numero-extenso">1 - UM</div>
+      </div>
+
+      <!-- Grade de 1 a 10 -->
+      <div id="grade-numeros" class="grade-numeros"></div>
+
+      <div id="feedback-numeros" class="mensagem-feedback" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="./assets/js/app.js" defer></script>
+  <script src="./assets/js/register-sw.js" defer></script>
+</body>
+</html>
