@@ -1,8 +1,10 @@
 {
-  "name": "Aprender Palavras - Alfabetização Acessível",
-  "short_name": "Palavras",
-  "description": "Aplicativo leve e acessível para aprender palavras e sílabas com áudio em português.",
+  "id": "/aprender-comunicar-apae/",
+  "name": "Aprender e Comunicar - Acessível",
+  "short_name": "Aprender",
+  "description": "Aplicativo offline e acessível para aprender palavras, sílabas e números com áudio em português.",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#f4f7f6",
@@ -10,15 +12,9 @@
   "lang": "pt-BR",
   "icons": [
     {
-      "src": "assets/icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "assets/icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='100' fill='%23005fcc'/%3E%3Ctext x='50%25' y='54%25' font-size='280' text-anchor='middle' dominant-baseline='middle' fill='white'%3E%F0%9F%93%96%3C/text%3E%3C/svg%3E",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     }
   ]
